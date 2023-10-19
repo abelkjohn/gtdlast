@@ -1,5 +1,15 @@
-import React from 'react'
+'use client'
 
-export default function Home(){
-  return (<h1>Please Work</h1>)
+import React from 'react'
+import { useRouter } from 'next/navigation'
+
+
+function Home() {
+  const router = useRouter()
+  router.push("/components/Signin")
+  return (
+    <div>Home</div>
+  )
 }
+
+export default Home
