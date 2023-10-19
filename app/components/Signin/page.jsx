@@ -30,7 +30,7 @@ export default function HelloWorld(){
   }
 
   return (
-    <form id='sign-up-box' className='sign-up-in p-10 h-3/5 rounded-2xl flex flex-col border-grey-100 border-2 shadow-lg shadow-blue-500/40'>
+    <form id='sign-up-box' className='fixed left-2/4 top-2/4 center-align sign-up-in p-10 h-3/5 rounded-2xl flex flex-col border-grey-100 border-2 shadow-lg shadow-blue-500/40'>
       <h1 className='text-center text-2xl font-bold mb-8'>Sign-In with Email</h1>
       <input className='p-2 rounded-2xl bg-gray-100 mb-5' type='email' id='sign-in-email' onChange={e => setEmail(e.target.value)} placeholder='Please enter email'></input>
       <input className='p-2 rounded-2xl bg-gray-100 mb-10 ' id='sign-in-password' onChange={e => setpassword(e.target.value)} type='password' placeholder='Please enter password'></input>
