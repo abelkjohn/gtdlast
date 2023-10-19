@@ -13,7 +13,7 @@ export default function HelloWorld(){
 
   const router = useRouter()
   //const { createUser } = UserAuth()
-
+  router.push('/')
   async function handleSubmit(e){
     e.preventDefault()
     setError('')
@@ -26,7 +26,7 @@ export default function HelloWorld(){
     document.getElementById('temp').value = error
     document.getElementById('sign-up-email').value = ""
     document.getElementById('sign-up-password').value = ""
-    router.push('/signin')
+    
   }
 
   return (
