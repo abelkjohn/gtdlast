@@ -3,7 +3,7 @@
 import React from 'react'
 import { useRouter } from "next/navigation"
 
-const page = () => {
+const Home = () => {
   const router = useRouter()
 
   router.push('/components/Signin')
@@ -12,4 +12,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Home
