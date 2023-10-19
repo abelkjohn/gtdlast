@@ -1,20 +1,13 @@
 'use client'
-
-import React from 'react'
+ 
 import { useRouter } from 'next/navigation'
-
-function Home() {
-  const [ auth, setAuth] = React.useState(true)
-  setAuth(false)
-
+ 
+export default function Page() {
   const router = useRouter()
-  if ( !auth ) {
-
-    router.push("/components/Signin")
-  }
+ 
   return (
-    <div>Home</div>
+    <button type="button" onClick={() => router.push('/dashboard')}>
+      Dashboard
+    </button>
   )
 }
-
-export default Home
