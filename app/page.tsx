@@ -1,12 +1,14 @@
 'use client'
 
 import React from 'react'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 
 function Home() {
   const router = useRouter()
-  router.push("/components/Signin")
+  React.useEffect(function(){
+    router.push("/components/Signin")
+  }, [])
   return (
     <div>Home</div>
   )
