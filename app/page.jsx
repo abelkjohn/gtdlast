@@ -2,8 +2,9 @@
 
 import React from 'react'
 import Link from 'next/link'
-//import { auth } from '../firebase';
+import { auth } from './api/firebase';
 import { useRouter } from 'next/navigation';
+import { signInWithEmailAndPassword } from 'firebase/auth/cordova';
 
 
 export default function HelloWorld(){
@@ -17,7 +18,7 @@ export default function HelloWorld(){
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        router.push('/')
+        router.push('/components/home')
         // ...
       })
       .catch((error) => {
