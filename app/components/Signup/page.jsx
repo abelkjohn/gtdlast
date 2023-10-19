@@ -34,7 +34,7 @@ export default function HelloWorld(){
       <h1 className='text-center text-2xl font-bold mb-8'>Sign-Up with Email</h1>
       <input className='p-2 rounded-2xl bg-gray-100 mb-5' id='sign-up-email' type='email' onChange={e => setEmail(e.target.value)} placeholder='Please enter email'></input>
       <input className='p-2 rounded-2xl bg-gray-100 mb-10 ' id='sign-up-password' onChange={e => setpassword(e.target.value)} type='password' placeholder='Please enter password'></input>
-      <Link href='/components/Signin'>
+      <Link href='/'>
       <p className='text-sm text-center'>Already have an account? Log in here</p>
       <p id='temp'></p>
       </Link>
