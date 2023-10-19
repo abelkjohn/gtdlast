@@ -4,9 +4,14 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 
 function Home() {
-  const router = useRouter()
+  const [ auth, setAuth] = React.useState(true)
+  setAuth(false)
 
-  router.push("/components/Signin")
+  const router = useRouter()
+  if ( !auth ) {
+
+    router.push("/components/Signin")
+  }
   return (
     <div>Home</div>
   )
