@@ -3,16 +3,16 @@
 import React from 'react'
 import { ref, onValue, remove } from "firebase/database";
 import { db } from '../api/firebase';
-//import { UserAuth } from '../context/AuthContext';
+import { UserAuth } from './context/AuthContext';
 
 export default function RenderNotes(){
     const [ indArray, setIndArray ] = React.useState('')
-//    const { user } = UserAuth()
-//   const email = user.email ? user.email.replace('.', '&dot') : ''
-
-
+    const { user } = UserAuth()
+    
+    
     React.useEffect(() => {
-        const starCountRef = ref(db, `abelkjohn@gmail&dotcom/in-bucket`);
+        const email = user ? user.email.replace('.', '&dot') : ''
+        const starCountRef = ref(db, `${email}/in-bucket`);
         onValue(starCountRef, (snapshot) => {
         const data = snapshot.val();
         if (data === null ){
@@ -21,12 +21,13 @@ export default function RenderNotes(){
         }
     })
    
-}, [ ]);
+}, [ user ]);
 
     
 
         return ( 
         <>
+            {user ? <p>{user.email}</p> : 'No email found'}
             <div id='notes' className='mx-2'>In-bucket</div>
             <div className='w-10/12 flex flex-wrap gap-2 mx-auto'>
                 {indArray.length !== 0 ? indArray.map(i => {
