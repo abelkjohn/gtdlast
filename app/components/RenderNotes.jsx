@@ -26,21 +26,20 @@ export default function RenderNotes(){
     
 
         return ( 
-        <>
-            {user ? <p>{user.email}</p> : 'No email found'}
-            <div id='notes' className='mx-2'>In-bucket</div>
-            <div className='w-10/12 flex flex-wrap gap-2 mx-auto'>
+        <div className='flex flex-col  mx-4 gap-4'>
+            <div id='notes' className='text-white border-none p-2 w-full text-center select-none rounded-xl mx-auto bg-indigo-500 shadow-indigo-500/50 shadow-lg'>In-bucket</div>
+            <div className='w-10/12 flex flex-wrap justify-start gap-2'>
                 {indArray.length !== 0 ? indArray.map(i => {
                     function getId(e){
                         remove(ref(db, `/abelkjohn@gmail&dotcom/in-bucket/${e.target.id}`))
                     }
                     return (
-                        <div onDoubleClick={(e) => getId(e)} id={i.id} className='border-2 border-black p-2 select-none' key={i.id}>
+                        <div onDoubleClick={(e) => getId(e)} id={i.id} className='text-white bg-cyan-500 custom-shadow-color border-none shadow-lg shadow-cyan-500/50  p-2 select-none rounded-xl' key={i.id}>
                             <h1 id={i.id} className=''>{i.post}</h1>
                             <p id={i.id} className=''>{i.main.length > 30 ? i.main.slice(0, 30) + '...' : i.main}</p>
                         </div>
-                )}) : 'You have no notes'}
+                )}) : <p className=''>You have no notes</p>}
             </div>
-        </>
+        </div>
         )
 }

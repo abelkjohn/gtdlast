@@ -28,10 +28,9 @@ export default function AddNote(){
         document.getElementById('post-main').value = ""
     }
 
-      return <div className='flex flex-col m-4'>
-      <p>{user ? user.email : 'no email here'}</p>
-      <input className='border-2 border-b-0 px-2 rounded-15'  placeholder='Add a title for your note'  id='post-input' onChange={(e) => setPost(e.target.value)}></input>
-      <textarea className='border-2 border-b-0 border-t-0 px-2 rounded-15' id='post-main' placeholder='Write your note here'  onChange={(e) => setMain(e.target.value)}></textarea>
-      <button className='border-2 px-2 rounded-15' onClick={onSubmit}>Submit</button>
+      return <div className='flex flex-col m-4 h-80 w-3/4 mx-auto'>
+      <input className='h-1/6 border-2 border-b-0 px-2'  placeholder='Add a title for your note'  id='post-input' onChange={(e) => setPost(e.target.value)}></input>
+      <textarea className='h-4/6 border-2 border-b-0 border-t-0 px-2 rounded-15' id='post-main' placeholder='Write your note here'  onChange={(e) => setMain(e.target.value)}></textarea>
+      <button className='h-1/6 border-2 px-2 rounded-15' onClick={onSubmit}>Submit</button>
       </div>
 } 

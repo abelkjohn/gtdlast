@@ -3,7 +3,7 @@ import AddNote from '../AddNote'
 import RenderNotes from "../RenderNotes"
 
 function homepage() {
-  return <><AddNote /><RenderNotes /></>
+  return <div><AddNote /><RenderNotes /></div>
 }
 
 export default homepage
