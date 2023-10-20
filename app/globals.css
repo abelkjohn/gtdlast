@@ -10,3 +10,6 @@ html, body {
   margin-bottom: 1em;
 }
 
+.no-focus:focus {
+  outline: none
+}
