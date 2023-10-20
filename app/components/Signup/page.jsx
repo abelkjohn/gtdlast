@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from "next/link"
 import { UserAuth } from "../context/AuthContext"
+import { useRouter } from 'next/navigation'
 
 function Signup() {
   const [ email, setEmail ] = React.useState('') 
@@ -10,6 +11,7 @@ function Signup() {
   const [ error, setError ] = React.useState("")
 
   const { createUser } = UserAuth()
+  const router = useRouter()
 
   async function handleSubmit(e){
     e.preventDefault()
@@ -18,6 +20,7 @@ function Signup() {
       await createUser(email, password)
       document.getElementById('sign-up-email').value = ""
       document.getElementById('sign-up-password').value = ""
+      router.push('/')
     } catch (e) {
       setError(e.message)
       console.log(e.message)
