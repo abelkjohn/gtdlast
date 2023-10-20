@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { db } from '../api/firebase'
-//import { UserAuth } from '../context/AuthContext';
+import { UserAuth } from './context/AuthContext';
 import { ref, set } from "firebase/database";
 import { nanoid } from 'nanoid'
 
@@ -10,14 +10,14 @@ export default function AddNote(){
     const [ post, setPost ] = React.useState('')
     const [ main, setMain ] = React.useState('')
 
-    //const { user } = UserAuth()
+    const { user } = UserAuth()
     
 
   function onSubmit(e){
       e.preventDefault()
-      //const email = user.email.replace(".", "&dot");
+      const email = user ? user.email.replace(".", "&dot") : "";
       const id = nanoid()
-      set(ref(db, `abelkjohn@gmail&dotcom/in-bucket/${id}`), {
+      set(ref(db, `${email}/in-bucket/${id}`), {
         post: post,
         main: main,
         id: id
@@ -29,6 +29,7 @@ export default function AddNote(){
     }
 
       return <div className='flex flex-col m-4'>
+      <p>{user ? user.email : 'no email here'}</p>
       <input className='border-2 border-b-0 px-2 rounded-15'  placeholder='Add a title for your note'  id='post-input' onChange={(e) => setPost(e.target.value)}></input>
       <textarea className='border-2 border-b-0 border-t-0 px-2 rounded-15' id='post-main' placeholder='Write your note here'  onChange={(e) => setMain(e.target.value)}></textarea>
       <button className='border-2 px-2 rounded-15' onClick={onSubmit}>Submit</button>
