@@ -20,7 +20,7 @@ function Signup() {
       await createUser(email, password)
       document.getElementById('sign-up-email').value = ""
       document.getElementById('sign-up-password').value = ""
-      router.push('/')
+      router.push('/components/home')
     } catch (e) {
       setError(e.message)
       console.log(e.message)
