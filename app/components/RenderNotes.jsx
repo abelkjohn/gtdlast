@@ -4,8 +4,9 @@ import React from 'react'
 import { ref, onValue, remove } from "firebase/database";
 import { db } from '../api/firebase';
 import { UserAuth } from './context/AuthContext';
+import NoteDetails from './NoteDetails'
 
-export default function RenderNotes(){
+export default function RenderNotes({id}){
     const [ indArray, setIndArray ] = React.useState('')
     const { user } = UserAuth()
 
@@ -25,7 +26,7 @@ export default function RenderNotes(){
             document.getElementById('notes').innerText = 'In-Bucket'
         }
         })
-    
+        //i.main.length > 30 ? i.main.slice(0, 30) + '...' : i.main (usefull in the future)
     }, [ user ]);
 
         return ( 
@@ -34,13 +35,12 @@ export default function RenderNotes(){
             <div id='ind-notes' className='flex justify-between flex-wrap gap-2'>
                 {indArray.length > 0 ? indArray.map(i => {
                     function getId(e){
-                        remove(ref(db, `/${email}/in-bucket/${e.target.id}`))
-                        document.getElementById('notes') ? document.getElementById('notes').innerText === 'You have no notes' ? window.location.reload() : null : null
+                        id(e)
                     }
                     return (
                         <div onDoubleClick={(e) => getId(e)} id={i.id} className='grow text-white bg-cyan-500 border-none shadow-lg shadow-cyan-500/50 p-2 select-none w-96' key={i.id}>
                             <h1 id={i.id} className=''>{i.post}</h1>
-                            <p id={i.id} className=''>{i.main.length > 30 ? i.main.slice(0, 30) + '...' : i.main}</p>
+                            <p id={i.id} className=''>{i.main}</p>
                         </div>
                 )}) : null }
             </div>

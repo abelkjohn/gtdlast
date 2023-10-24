@@ -6,7 +6,7 @@ import { UserAuth } from './context/AuthContext';
 import { ref, set } from "firebase/database";
 import { nanoid } from 'nanoid'
 
-export default function AddNote(){
+export default function AddNote(props){
   const [ post, setPost ] = React.useState('')
   const [ main, setMain ] = React.useState('')
 
@@ -18,7 +18,7 @@ export default function AddNote(){
     if ( post || main ){
       const email = user ? user.email.replace(".", "&dot") : "";
       const id = nanoid()
-      set(ref(db, `${email}/in-bucket/${id}`), {
+      set(ref(db, `${email}/${props.bucket}/${id}`), {
         post: post,
         main: main,
         id: id
@@ -28,7 +28,7 @@ export default function AddNote(){
         document.getElementById('post-input').value = ""
         document.getElementById('post-main').value = ""
     } else {
-      document.getElementById('post-main').value = "Please enter text to continue"
+      document.getElementById('post-main').placeholder = "Please enter text to continue"
     }
   }
 
