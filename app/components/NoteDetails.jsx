@@ -7,8 +7,9 @@ import { UserAuth } from './context/AuthContext';
 
 
 export default function NoteDetails({id}){
-
+    if(id){
         document.getElementById('note-specific') ? document.getElementById('note-specific').style.display = 'flex' : ''
+    }
     const { user } = UserAuth() 
     
     console.log(id)
