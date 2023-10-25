@@ -33,4 +33,4 @@ function Homepage() {
     </div>
 }
 
-export default homepage
+export default Homepage
