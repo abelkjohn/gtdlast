@@ -18,10 +18,11 @@ export default function AddNote(props){
     if ( post || main ){
       const email = user ? user.email.replace(".", "&dot") : "";
       const id = nanoid()
-      set(ref(db, `${email}/${props.bucket}/${id}`), {
+      set(ref(db, `${email}/buckets/${props.bucket}/${id}`), {
         post: post,
         main: main,
-        id: id
+        id: id,
+        bucket: props.bucket
       });
         setPost('')
         setMain('')

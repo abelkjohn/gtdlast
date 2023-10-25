@@ -5,6 +5,7 @@ import Link from "next/link"
 import { UserAuth } from "../context/AuthContext"
 import { useRouter } from 'next/navigation'
 
+
 function Signup() {
   const [ email, setEmail ] = React.useState('') 
   const [ password, setPassword ] = React.useState('') 

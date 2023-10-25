@@ -4,9 +4,8 @@ import React from 'react'
 import { ref, onValue, remove } from "firebase/database";
 import { db } from '../api/firebase';
 import { UserAuth } from './context/AuthContext';
-import NoteDetails from './NoteDetails'
 
-export default function RenderNotes({id}){
+export default function RenderNotes({id, bucket}){
     const [ indArray, setIndArray ] = React.useState('')
     const { user } = UserAuth()
 
@@ -16,8 +15,8 @@ export default function RenderNotes({id}){
     
     const email = user ? user.email.replace('.', '&dot') : ''
     React.useEffect(() => {
-        const starCountRef = ref(db, `${email}/in-bucket`);
-        onValue(starCountRef, (snapshot) => {
+        const notes = ref(db, `${email}/in-bucket`);
+        onValue(notes, (snapshot) => {
         const data = snapshot.val();
         if (data === null ){
             document.getElementById('notes').innerText = 'You have no notes'
@@ -30,12 +29,13 @@ export default function RenderNotes({id}){
     }, [ user, email ]);
 
         return ( 
-        <div className={`overflow-hidden rounded-xl flex flex-col mx-4 ${indArray.length > 0 ? 'gap-2 shadow-indigo-500/50' : 'shadow-indigo-500/50'} shadow-xl `}>
+        <div className={`overflow-hidden rounded-xl flex flex-col mx-4 gap-2 shadow-indigo-500/50 shadow-xl`}>
             <button onClick={toggleDisplay} id='notes' className='text-white border-none p-3 w-full text-center select-none mx-auto shadow-xl shadow-indigo-500/50 bg-indigo-500'>Loading...</button>
             <div id='ind-notes' className='flex justify-between flex-wrap gap-2'>
                 {indArray.length > 0 ? indArray.map(i => {
                     function getId(e){
                         id(e)
+                        bucket('in-bucket')
                     }
                     return (
                         <div onDoubleClick={(e) => getId(e)} id={i.id} className='grow text-white bg-cyan-500 border-none shadow-lg shadow-cyan-500/50 p-2 select-none w-96' key={i.id}>
