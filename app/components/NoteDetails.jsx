@@ -77,7 +77,7 @@ export default function NoteDetails({id, bucketName}){
     return (
         <div id='note-specific' className='border-4 hidden fixed flex-col gap-1 top-1/2 left-1/2 center-align bg-white p-4 w-80 '>
             <input className='no-focus' id='edit-post' onChange={e => setPost(e.target.value)} placeholder='Add your Title here' value={post}></input>
-            <input onChange={e => setBucket(e.target.value)} placeholder='Enter Buket name to transfer' className='no-focus ' value={bucket}></input>
+            <input onChange={e => setBucket(e.target.value)} placeholder='Enter Bucket name to transfer' className='no-focus ' value={bucket}></input>
             <textarea className='h-80 no-focus' id='edit-main' onChange={e => setMain(e.target.value)} placeholder='Add your Note here' value={main}></textarea>
             <div className='flex justify-evenly'>
                 <button className='no-focus' onClick={removeNote}>Delete</button>
