@@ -83,10 +83,10 @@ export default function NoteDetails({id, bucketName}){
     }
     return (
         <div id='note-specific' className='shadow-cyan-500 shadow-2xl rounded-2xl hidden fixed flex-col  top-1/2 left-1/2 center-align bg-white p-0 w-80 '>
-            <div className='border-cyan-500 border-2 overflow-hidden rounded-xl rounded-b-none border-b-0 flex flex-col'>
-                <input className='m-2 no-focus' id='edit-post' onChange={e => setPost(e.target.value)} placeholder='Add your Title here' value={post}></input>
-                <input onChange={e => setBucket(e.target.value)} placeholder='Enter Bucket name to transfer' className='no-focus m-2' value={bucket}></input>
-                <textarea className='h-80 no-focus m-2 mb-0' id='edit-main' onChange={e => setMain(e.target.value)} placeholder='Add your Note here' value={main}></textarea>
+            <div className='text-m p-2 border-cyan-500 border-2 overflow-hidden rounded-xl rounded-b-none border-b-0 flex flex-col'>
+                <input className='m-1 no-focus' id='edit-post' onChange={e => setPost(e.target.value)} placeholder='Add your Title here' value={post}></input>
+                <input onChange={e => setBucket(e.target.value)} placeholder='Enter Bucket name to transfer' className='m-1 no-focus' value={bucket}></input>
+                <textarea className='m-1 h-80 no-focus mb-0' id='edit-main' onChange={e => setMain(e.target.value)} placeholder='Add your Note here' value={main}></textarea>
             </div>
             <div className='overflow-hidden flex justify-around m-0 border-r-green-600 border-l-red-600  rounded-b-xl'>
                 <button className='text-white text-lg no-focus w-full p-4 bg-red-600 ' onClick={removeNote}>Delete</button>
