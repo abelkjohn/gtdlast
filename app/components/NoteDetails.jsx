@@ -13,9 +13,9 @@ export default function NoteDetails({id, bucketName}){
     const [ post, setPost ] = React.useState('')
     const [ main, setMain ] = React.useState('')
     const [ bucket, setBucket ] = React.useState('')
-    console.log(id, bucketName)
 
     const { user } = UserAuth() 
+
     
     React.useEffect(function(){
         const email = user ? user.email.replace('.', '&dot') : ''
@@ -43,8 +43,6 @@ export default function NoteDetails({id, bucketName}){
                 onSubmit(e)
                 removeNote()
             }
-            document.getElementById("edit-post").value = ""
-            document.getElementById("edit-main").value = ""
             document.getElementById("note-specific").style.display = "none"
     }
        
@@ -59,10 +57,6 @@ export default function NoteDetails({id, bucketName}){
             id: id,
             bucket: bucket
           });
-            setPost('')
-            setMain('')
-            document.getElementById('edit-post').value = ""
-            document.getElementById('edit-main').value = ""
         } else {
           document.getElementById('edit-main').placeholder = "Please enter text to continue"
         }
@@ -74,16 +68,31 @@ export default function NoteDetails({id, bucketName}){
         remove(ref(db, `/${email}/buckets/${bucketName}/${id}`))
     }
     
+    function closePopup(){
+        const email = user ? user.email.replace('.', '&dot') : ''
+        const notes = ref(db, `${email}/buckets/${bucketName}/${id}`);
+        onValue(notes, (snapshot) => {
+        const data = snapshot.val();
+        if (data === null ){
+        } else {
+            setPost(data.post)
+            setMain(data.main)
+        }
+        })
+        document.getElementById("note-specific").style.display = "none"
+    }
     return (
-        <div id='note-specific' className='border-4 hidden fixed flex-col gap-1 top-1/2 left-1/2 center-align bg-white p-4 w-80 '>
-            <input className='no-focus' id='edit-post' onChange={e => setPost(e.target.value)} placeholder='Add your Title here' value={post}></input>
-            <input onChange={e => setBucket(e.target.value)} placeholder='Enter Bucket name to transfer' className='no-focus ' value={bucket}></input>
-            <textarea className='h-80 no-focus' id='edit-main' onChange={e => setMain(e.target.value)} placeholder='Add your Note here' value={main}></textarea>
-            <div className='flex justify-evenly'>
-                <button className='no-focus' onClick={removeNote}>Delete</button>
-                <button>Discard Changes</button>
-                <button className="no-focus" onClick={saveNote}>Save</button>
+        <div id='note-specific' className='rounded-2xl hidden fixed flex-col  top-1/2 left-1/2 center-align bg-white p-0 w-80 '>
+            <div className='border-blue-500 border-2 overflow-hidden rounded-xl rounded-b-none border-b-0 flex flex-col'>
+                <input className='m-2 no-focus' id='edit-post' onChange={e => setPost(e.target.value)} placeholder='Add your Title here' value={post}></input>
+                <input onChange={e => setBucket(e.target.value)} placeholder='Enter Bucket name to transfer' className='no-focus m-2' value={bucket}></input>
+                <textarea className='h-80 no-focus m-2 mb-0' id='edit-main' onChange={e => setMain(e.target.value)} placeholder='Add your Note here' value={main}></textarea>
             </div>
+            <div className='overflow-hidden flex justify-around m-0 border-r-green-600 border-l-red-600 rounded-b-xl'>
+                <button className='text-white text-lg no-focus  w-full p-4 bg-red-600' onClick={removeNote}>Delete</button>
+                <button className="no-focus text-white text-lg bg-green-600 p-4 m-0 w-full" onClick={saveNote}>Save</button>
+            </div>
+            <button onClick={closePopup} className='text-red-600 fixed right-2 top-1 text-2xl'>X</button>
         </div>
     )
 }
