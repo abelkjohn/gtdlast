@@ -8,7 +8,7 @@ import { UserAuth } from './context/AuthContext';
 
 export default function NoteDetails({id}){
     if (id){
-        document.getElementById('note-specific').style.display = 'flex'
+        document.getElementById('note-specific') ? document.getElementById('note-specific').style.display = 'flex' : ''
     }  else {
         document.getElementById('note-specific') ? document.getElementById('note-specific').style.display = 'none' : ''
     }  
