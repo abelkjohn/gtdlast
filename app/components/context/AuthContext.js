@@ -31,7 +31,7 @@ export function AuthContextProvider({children}){
             unsubscribe()
         }
 
-    }, [])
+    }, [ user ])
 
     return (
         <UserContext.Provider value={{createUser, user, logout}}>

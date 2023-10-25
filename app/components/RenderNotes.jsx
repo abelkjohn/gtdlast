@@ -27,7 +27,7 @@ export default function RenderNotes({id}){
         }
         })
         //i.main.length > 30 ? i.main.slice(0, 30) + '...' : i.main (usefull in the future)
-    }, [ user ]);
+    }, [ user, email ]);
 
         return ( 
         <div className={`overflow-hidden rounded-xl flex flex-col mx-4 ${indArray.length > 0 ? 'gap-2 shadow-indigo-500/50' : 'shadow-indigo-500/50'} shadow-xl `}>
