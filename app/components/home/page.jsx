@@ -7,7 +7,7 @@ import { UserAuth } from '../context/AuthContext'
 import { useRouter } from 'next/navigation'
 import NoteDetails from '../NoteDetails'
 
-function homepage() {
+function Homepage() {
   const [ currentId, setCurrentId ] = React.useState('')
   const { logout } = UserAuth()
   const router = useRouter()
