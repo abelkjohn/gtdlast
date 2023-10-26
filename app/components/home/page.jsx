@@ -57,7 +57,7 @@ function Homepage() {
     <AddNote bucket={'** In-Bucket **'}/>
 
     
-    <div className='flex flex-col gap-4 my-4'>
+    <div className='flex flex-col gap-4 my-1'>
       {indArray ? indArray.map(i => {
         function toggleDisplay(id){
           document.getElementById(id) ? document.getElementById(id).style.display = document.getElementById(id).style.display === 'flex' ? 'none' : 'flex' : ""
@@ -76,7 +76,7 @@ function Homepage() {
             })}</div>
           </div>
         )
-      }) : ''}
+      }) : <button className='rounded-xl mx-4 overflow-hidden text-white border-none p-3  text-center select-none shadow-xl shadow-indigo-500/50 bg-indigo-500'>Loading...</button>}
     </div>
     
 
