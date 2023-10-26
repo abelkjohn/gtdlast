@@ -43,7 +43,7 @@ function Homepage() {
     onValue(notes, (snapshot) => {
       const data = snapshot.val();
       if (data === null ){
-        
+        document.getElementById('loading').innerText = 'Add notes to continue...'
       } else {
         
         setIndArray(Object.keys(data).map((key) => [key, Object.values(data[key])]))
@@ -76,7 +76,7 @@ function Homepage() {
             })}</div>
           </div>
         )
-      }) : <button className='rounded-xl mx-4 overflow-hidden text-white border-none p-3  text-center select-none shadow-xl shadow-indigo-500/50 bg-indigo-500'>Loading...</button>}
+      }) : <button id='loading' className='rounded-xl mx-4 overflow-hidden text-white border-none p-3  text-center select-none shadow-xl shadow-indigo-500/50 bg-indigo-500'>Loading...</button>}
     </div>
     
 
