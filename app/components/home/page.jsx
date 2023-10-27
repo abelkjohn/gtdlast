@@ -2,7 +2,7 @@
 
 import React from 'react'
 import AddNote from '../AddNote'
-import RenderNotes from "../RenderNotes"
+
 import { UserAuth } from '../context/AuthContext'
 import { useRouter } from 'next/navigation'
 import NoteDetails from '../NoteDetails'
@@ -45,9 +45,7 @@ function Homepage() {
       if (data === null ){
         document.getElementById('loading').innerText = 'Add notes to continue...'
       } else {
-        
         setIndArray(Object.keys(data).map((key) => [key, Object.values(data[key])]))
-        
       }
     })
   }, [ user ])
