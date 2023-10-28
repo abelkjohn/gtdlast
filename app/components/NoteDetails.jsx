@@ -94,7 +94,7 @@ export default function NoteDetails({id, bucketName}){
                 <input className='wrap mr-5 m-1 no-focus' id='edit-post' onChange={e => setPost(e.target.value)} placeholder='Add your Title here' value={post}></input>
                 <input className='m-1 no-focus' value={bucket} onChange={e => setBucket(e.target.value)} placeholder='Please Enter the bucket to transfer' list='buckets-info'></input>
                 <datalist id='buckets-info'>
-                    <option value="*Next Actions*"/>
+                    <option value="* Next Actions *"/>
                 </datalist>
                 <textarea className='m-1 h-80 no-focus mb-0' id='edit-main' onChange={e => setMain(e.target.value)} placeholder='Add your Note here' value={main}></textarea>
             </div>
