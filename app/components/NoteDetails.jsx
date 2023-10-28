@@ -12,9 +12,13 @@ import { nanoid } from 'nanoid'
 export default function NoteDetails({id, bucketName}){
     const [ post, setPost ] = React.useState('')
     const [ main, setMain ] = React.useState('')
-    const [ bucket, setBucket ] = React.useState("")
+    const [ bucket, setBucket ] = React.useState('')
 
     const { user } = UserAuth() 
+
+    React.useEffect(function(){
+        setBucket(bucketName)
+    }, [ bucketName ])
 
     
     React.useEffect(function(){
@@ -39,11 +43,12 @@ export default function NoteDetails({id, bucketName}){
                     post: post,
                     main: main
                 })
+
             } else {
                 onSubmit(e)
                 removeNote()
             }
-            setBucket('')
+            setBucket(bucketName)
             document.getElementById("note-specific").style.display = "none"
     }
        
@@ -78,6 +83,7 @@ export default function NoteDetails({id, bucketName}){
         } else {
             setPost(data.post)
             setMain(data.main)
+            setBucket(bucketName)
         }
         })
         document.getElementById("note-specific").style.display = "none"
@@ -86,7 +92,10 @@ export default function NoteDetails({id, bucketName}){
         <div id='note-specific' className='shadow-cyan-500 shadow-2xl rounded-2xl hidden fixed flex-col  top-1/2 left-1/2 center-align bg-white p-0 w-80 '>
             <div className='text-m p-2 border-cyan-500 border-2 overflow-hidden rounded-xl rounded-b-none border-b-0 flex flex-col'>
                 <input className='wrap mr-5 m-1 no-focus' id='edit-post' onChange={e => setPost(e.target.value)} placeholder='Add your Title here' value={post}></input>
-                <input onChange={e => setBucket(e.target.value)} placeholder={bucketName} className=' m-1 no-focus' value={bucket}></input>
+                <input className='m-1 no-focus' value={bucket} onChange={e => setBucket(e.target.value)} placeholder='Please Enter the bucket to transfer' list='buckets-info'></input>
+                <datalist id='buckets-info'>
+                    <option value="*Next Actions*"/>
+                </datalist>
                 <textarea className='m-1 h-80 no-focus mb-0' id='edit-main' onChange={e => setMain(e.target.value)} placeholder='Add your Note here' value={main}></textarea>
             </div>
             <div className='overflow-hidden flex justify-around m-0 border-r-green-600 border-l-red-600  rounded-b-xl'>
