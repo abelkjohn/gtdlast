@@ -30,7 +30,7 @@ export default function RenderNotes({id, bucket}){
 
         return ( 
         <div className={`overflow-hidden rounded-xl flex flex-col mx-4 gap-2 shadow-indigo-500/50 shadow-xl`}>
-            <button onClick={toggleDisplay} id='notes' className='text-white border-none p-3 w-full text-center select-none mx-auto shadow-xl shadow-indigo-500/50 bg-indigo-500'>Loading...</button>
+            <button onClick={toggleDisplay} id='notes' className='text-white border-none p-3 w-6/12 /text-center select-none mx-auto shadow-xl shadow-indigo-500/50 bg-indigo-500'>Loading...</button>
             <div id='ind-notes' className='flex justify-between flex-wrap gap-2'>
                 {indArray.length > 0 ? indArray.map(i => {
                     function getId(e){
