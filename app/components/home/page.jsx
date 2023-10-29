@@ -43,7 +43,7 @@ function Homepage() {
     onValue(notes, (snapshot) => {
       const data = snapshot.val();
       if (data === null ){
-        document.getElementById('loading').innerText = 'Add notes to continue...'
+        document.getElementById('loading') ? document.getElementById('loading').innerText = 'Add notes to continue...' : ''
       } else {
         setIndArray(Object.keys(data).map((key) => [key, Object.values(data[key])]))
       }
@@ -82,7 +82,7 @@ function Homepage() {
 
 
     <button className='text-white bg-blue-500 p-3 rounded-xl m-5 mx-auto shadow-lg shadow-4 shadow-blue-500/50' onClick={handleClick}>Log Out</button>
-    <NoteDetails id={currentId} bucketName={bucketName}/>
+    <NoteDetails user={user} id={currentId} bucketName={bucketName}/>
     </div>)
 }
 
