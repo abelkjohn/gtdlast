@@ -11,6 +11,7 @@ html, body {
 }
 
 .no-focus:focus {
-  outline: none
+  outline: none;
+  border: 2px solid white;
 } 
 
