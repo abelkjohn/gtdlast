@@ -34,9 +34,9 @@ export default function AddNote(props){
   }
 
   return (
-    <div className='flex flex-col m-4 mb-6 h-80'>
-      <input className='h-1/6 border-blue-500 border-2 border-b-0 px-2 no-focus rounded-tr-xl rounded-tl-xl shadow-blue-500/50 shadow-lg'  placeholder='Add a title for your note'  id='post-input' onChange={(e) => setPost(e.target.value)}></input>
-      <textarea className='border-blue-500 resize-none h-4/6 border-2 border-b-0 border-t-0 px-2 rounded-15 no-focus  shadow-blue-500/50 shadow-lg' id='post-main' placeholder='Write your note here'  onChange={(e) => setMain(e.target.value)}></textarea>
+    <div className='flex flex-col m-4 mb-6 h-96 shadow-blue-500/60 shadow-xl overflow-hidden rounded-xl'>
+      <input className='bg-gray-100 text-xl h-1/6 pt-1  border-b-0 px-3 no-focus '  placeholder='Add a title for your note'  id='post-input' onChange={(e) => setPost(e.target.value)}></input>
+      <textarea className='bg-gray-100 text-lg  resize-none h-4/6 border-b-0 border-t-0 px-3 rounded-15 no-focus  shadow-blue-500/50 shadow-lg' id='post-main' placeholder='Write your note here'  onChange={(e) => setMain(e.target.value)}></textarea>
       <button id='submit' className='text-white h-1/6 px-2 rounded-15 rounded-br-xl rounded-bl-xl border-none bg-blue-500  shadow-blue-500/50 shadow-lg' onClick={onSubmit}>Submit</button>
     </div>
   )

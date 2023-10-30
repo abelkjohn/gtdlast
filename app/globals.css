@@ -12,9 +12,5 @@ html, body {
 
 .no-focus:focus {
   outline: none;
-  border: 2px solid white;
 } 
 
-.place::placeholder {
-  color: white;
-}
