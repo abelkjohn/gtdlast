@@ -14,3 +14,18 @@ html, body {
   outline: none;
 } 
 
+.white-focus:focus{
+  outline: none;
+  border: 1px solid white;
+  border-radius: 15px;
+}
+.white-focus:hover{
+  outline: none;
+  border: 1px solid white;
+  border-radius: 15px;
+}
+
+
+.place::placeholder {
+  color: whitesmoke;
+}
