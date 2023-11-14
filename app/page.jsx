@@ -24,6 +24,8 @@ export default function HelloWorld(){
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        console.log(errorMessage)
+        document.getElementById('error-sign-in').innerText = errorMessage
       });
 
     document.getElementById('sign-in-email').value = ""
@@ -38,6 +40,8 @@ export default function HelloWorld(){
       <Link href='/components/Signup'>
         <p className='text-sm text-center mb-14'>Don&apos;t have an account? Create one here</p>
       </Link>
+      <p id='error-sign-in'></p>
+
       <button className='p-2 bg-blue-500 rounded-2xl w-3/6 mx-auto text-white shadow-lg shadow-blue-600/50' onClick={logInUser}>Submit</button>
     </form>
   )
