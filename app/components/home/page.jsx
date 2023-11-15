@@ -18,7 +18,9 @@ function Homepage() {
   const { logout, user } = UserAuth()
   const router = useRouter()
 
-
+  if ( !user ){
+    router.push('/')
+  }
 
   async function handleClick(){
     try {
