@@ -22,7 +22,7 @@ function Homepage() {
     if (!user) {
       router.push('/');
     }
-  }, [user, router])
+  }, [])
 
   async function handleClick(){
     try {
