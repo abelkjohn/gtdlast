@@ -18,7 +18,11 @@ function Homepage() {
   const { logout, user } = UserAuth()
   const router = useRouter()
 
-
+  React.useEffect(function () {
+    if (!user) {
+      router.push('/');
+    }
+  }, [user, router])
 
   async function handleClick(){
     try {
