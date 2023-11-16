@@ -66,7 +66,7 @@ function Homepage() {
       }
         return (
           <div key={i} className='overflow-hidden rounded-xl flex flex-col mx-4 gap-2 shadow-indigo-500/50 shadow-xl'>
-            <button onClick={() => toggleDisplay(i[0])} className='white-focus text-white border-none p-3 w-full text-center select-none mx-auto shadow-xl shadow-indigo-500/50 bg-indigo-500'>{i[0]}</button>
+            <button onClick={() => toggleDisplay(i[0])} className='white-focus text-white text-lg font-bold border-none p-3 w-full text-center select-none mx-auto shadow-xl shadow-indigo-500/50 bg-indigo-500'>{i[0]}</button>
             <div className='flex justify-between flex-wrap gap-2' id={i[0]}>{i[1].map(i => {
              return <div onDoubleClick={(e) => {
               id(e)
