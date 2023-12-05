@@ -29,3 +29,7 @@ html, body {
 .place::placeholder {
   color: whitesmoke;
 }
+
+textarea {
+  resize: both;
+}
