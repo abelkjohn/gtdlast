@@ -72,19 +72,14 @@ function Homepage() {
               id(e)
               bucket(i.bucket)
              }} id={i.id} className='grow text-white bg-cyan-500 border-none shadow-lg shadow-cyan-500/50 p-2 select-none w-96' key={i.id}>
-             <h1 id={i.id} className=''>{i.post}</h1>
-             <p id={i.id} className=''>{i.main}</p>
+             <h1 id={i.id} className='font-bold'>{i.post}</h1>
+             <p id={i.id} className='text-sm'>{i.main}</p>
          </div>
             })}</div>
           </div>
         )
       }) : <button id='loading' className='rounded-xl mx-4 overflow-hidden text-white border-none p-3  text-center select-none shadow-xl shadow-indigo-500/50 bg-indigo-500'>Loading...</button>}
     </div>
-    
-
-
-
-
     <button className='text-white bg-blue-500 p-3 rounded-xl m-5 mx-auto shadow-lg shadow-4 shadow-blue-500/50' onClick={handleClick}>Log Out</button>
     <NoteDetails user={user} id={currentId} bucketName={bucketName}/>
     </div>)
