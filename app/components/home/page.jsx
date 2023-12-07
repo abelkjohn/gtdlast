@@ -78,7 +78,7 @@ function Homepage() {
             })}</div>
           </div>
         )
-      }) : <button id='loading' className='rounded-xl mx-4 overflow-hidden text-white border-none p-3  text-center select-none shadow-xl shadow-indigo-500/50 bg-indigo-500'>Loading...</button>}
+      }) : <button id='loading' className='rounded-xl mx-4 overflow-hidden text-white border-none p-3 font-bold text-center select-none shadow-xl shadow-indigo-500/50 bg-indigo-500'>Loading...</button>}
     </div>
     <button className='text-white bg-blue-500 p-3 rounded-xl m-5 mx-auto shadow-lg shadow-4 shadow-blue-500/50' onClick={handleClick}>Log Out</button>
     <NoteDetails user={user} id={currentId} bucketName={bucketName}/>
