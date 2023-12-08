@@ -31,5 +31,5 @@ html, body {
 }
 
 textarea {
-  resize: both;
+  resize: none;
 }
