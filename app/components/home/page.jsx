@@ -67,13 +67,14 @@ function Homepage() {
         return (
           <div key={i} className='overflow-hidden rounded-xl flex flex-col mx-4 gap-2 shadow-indigo-500/50 shadow-xl'>
             <button onClick={() => toggleDisplay(i[0])} className='white-focus text-white text-lg font-bold border-none p-3 w-full text-center select-none mx-auto shadow-xl shadow-indigo-500/50 bg-indigo-500'>{i[0]}</button>
-            <div className='hidden justify-between flex-wrap gap-2' id={i[0]}>{i[1].map(i => {
+            <div className='flex justify-between flex-wrap gap-2' id={i[0]}>{i[1].map(i => {
              return <div onDoubleClick={(e) => {
               id(e)
               bucket(i.bucket)
              }} id={i.id} className='grow text-white bg-cyan-500 border-none shadow-lg shadow-cyan-500/50 p-2 select-none w-96' key={i.id}>
              <h1 id={i.id} className='font-bold'>{i.post}</h1>
              <p id={i.id} className='text-sm '>{i.main}</p>
+             
          </div>
             })}</div>
           </div>
