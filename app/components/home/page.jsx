@@ -73,7 +73,7 @@ function Homepage() {
               bucket(i.bucket)
              }} id={i.id} className='grow text-white bg-cyan-500 border-none shadow-lg shadow-cyan-500/50 p-2 select-none w-96' key={i.id}>
              <h1 id={i.id} className='font-bold'>{i.post}</h1>
-             <p id={i.id} className='text-sm '>{i.main}</p>
+             <p id={i.id} className='text-sm '>{i.main.length > 100 ? `${i.main.split('').slice(0, 100).join('')}...` : i.main}</p>
              
          </div>
             })}</div>
