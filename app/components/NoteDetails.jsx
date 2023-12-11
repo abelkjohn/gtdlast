@@ -101,7 +101,7 @@ export default function NoteDetails({user, id, bucketName}){
     }, [  ]) 
 
     return (
-        <div id='note-specific' className='border-none border-0 shadow-blue-900/100 shadow-2xl rounded-2xl hidden fixed flex-col top-1/2 left-1/2 center-align bg-white p-0 min-w-[85%] md:min-h-[87%] lg:min-h-[87%]'>
+        <div id='note-specific' className='border-none border-0 shadow-blue-900/100 shadow-2xl rounded-2xl hidden fixed flex-col top-1/2 left-1/2 center-align bg-white p-0 min-w-[85%] md:min-h-[87%] lg:min-h-[87%] overflow-hidden'>
             <div className='bg-gray-200 text-m border-blue-500 border-2 overflow-hidden rounded-xl rounded-b-none border-b-0 flex flex-col'>
                 <input className='bg-gray-200 text-gray-600 m-0 wrap p-2 pr-5 no-focus font-bold text-lg' id='edit-post' onChange={e => setPost(e.target.value)} placeholder='Add your Title here' value={post ? post : ''}></input>
                 <input className='bg-indigo-500 font-bold text-white rounded-xl my-1 mx-2 pl-4 pr-1 p-2 no-focus place text-lg' id='edit-bucket' onChange={e => setBucket(e.target.value)}  placeholder={bucketName ? bucketName  : 'Please input bucket to transfer'} list='buckets-info'></input>
