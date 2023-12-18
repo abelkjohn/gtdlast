@@ -2,6 +2,7 @@
 
 import React from 'react'
 import AddNote from '../AddNote'
+import Button from "../Button"
 
 import { UserAuth } from '../context/AuthContext'
 import { useRouter } from 'next/navigation'
@@ -56,9 +57,7 @@ function Homepage() {
   
   
   return (<div className='flex flex-col'>
-    <AddNote bucket={'** In-Bucket **'}/>
-
-    
+    <AddNote bucket={'** In-Bucket **'}/>    
     <div className='flex flex-col gap-4 my-1'>
       {indArray ? indArray.map(i => {
         function toggleDisplay(id){
@@ -83,6 +82,7 @@ function Homepage() {
     </div>
     <button className='text-white bg-blue-500 p-3 rounded-xl m-5 mx-auto shadow-lg shadow-4 shadow-blue-500/50' onClick={handleClick}>Log Out</button>
     <NoteDetails user={user} id={currentId} bucketName={bucketName}/>
+    <Button/>
     </div>)
 }
 
