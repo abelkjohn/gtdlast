@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link"
 export default function Button(){
-    return <h1 className="w-20 h-10 p-1 text-center fixed right-2 bottom-2 bg-white">/\</h1>
+    return <Link href="#top" className=" p-8 py-4 text-center fixed right-2 bottom-2 rounded-xl border-none bg-blue-500 shadow-blue-500/50 shadow-lg font-bold  text-white text-xl">+</Link>
 }

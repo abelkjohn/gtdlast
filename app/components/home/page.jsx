@@ -56,7 +56,7 @@ function Homepage() {
   }, [ user ])
   
   
-  return (<div className='flex flex-col'>
+  return (<div id='top' className='flex flex-col'>
     <AddNote bucket={'** In-Bucket **'}/>    
     <div className='flex flex-col gap-4 my-1'>
       {indArray ? indArray.map(i => {
