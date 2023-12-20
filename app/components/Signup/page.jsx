@@ -36,7 +36,7 @@ function Signup() {
         <p className='text-gray-500 text-sm text-center mb-14'>Already have an account? Log in here</p>
       </Link>
       <p id='error-sign-up'></p>
-      <button className='p-2 bg-blue-500 rounded-2xl w-3/6 m-auto text-white shadow-lg shadow-blue-600/50' onClick={handleSubmit}>Submit</button>
+      <button className='p-2 bg-blue-500 rounded-2xl w-3/6 m-auto text-white shadow-lg shadow-blue-600/50' onClick={handleSubmit}>Sign Up</button>
     </form>
   )
 }
