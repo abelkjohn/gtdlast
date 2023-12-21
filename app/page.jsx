@@ -42,7 +42,7 @@ export default function HelloWorld(){
       </Link>
       <p id='error-sign-in'></p>
 
-      <button className='p-2 bg-blue-500 rounded-2xl w-3/6 mx-auto text-white shadow-lg shadow-blue-600/50' onClick={logInUser}>Submit</button>
+      <button className='p-2 bg-blue-500 rounded-2xl w-3/6 mx-auto text-white shadow-lg shadow-blue-600/50' onClick={logInUser}>Log In</button>
     </form>
   )
 }
