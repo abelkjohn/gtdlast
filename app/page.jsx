@@ -38,7 +38,7 @@ export default function HelloWorld(){
       <input className='p-2 rounded-2xl bg-gray-100 mb-5 no-focus' type='email' id='sign-in-email' onChange={e => setEmail(e.target.value)} placeholder='Please enter email'></input>
       <input className='p-2 rounded-2xl bg-gray-100 mb-2 no-focus' id='sign-in-password' onChange={e => setPassword(e.target.value)} type='password' placeholder='Please enter password'></input>
       <Link href='/components/Signup'>
-        <p className='text-sm text-center mb-14'>Don&apos;t have an account? Create one here</p>
+        <p className='text-sm text-gray-500 text-center mb-14'>Don&apos;t have an account? Create one here</p>
       </Link>
       <p id='error-sign-in'></p>
 
