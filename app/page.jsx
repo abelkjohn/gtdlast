@@ -40,7 +40,8 @@ export default function HelloWorld(){
       <Link href='/components/Signup'>
         <p className='text-sm text-gray-500 text-center mb-14'>Don&apos;t have an account? Create one here</p>
       </Link>
-      <p id='error-sign-in'></p>
+      <p id='error-sign-in' className='text-gray-500'></p>
+      
 
       <button className='p-2 bg-blue-500 rounded-2xl w-3/6 mx-auto text-white shadow-lg shadow-blue-600/50' onClick={logInUser}>Log In</button>
     </form>
